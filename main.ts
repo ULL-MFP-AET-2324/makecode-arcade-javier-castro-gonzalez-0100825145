@@ -1,3 +1,10 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    electrode.x = randint(0, scene.screenWidth())
+    electrode.y = randint(0, scene.screenHeight())
+    info.changeScoreBy(1)
+    info.startCountdown(5)
+})
+let electrode: Sprite = null
 scene.setBackgroundColor(7)
 let ditto = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -18,19 +25,19 @@ let ditto = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(ditto)
-let voltorb = sprites.create(img`
+electrode = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . 2 2 2 2 f . . . . . . 
-    . . . . 2 2 2 2 2 2 f . . . . . 
-    . . . 2 2 2 2 2 2 2 2 2 . . . . 
-    . . . 2 2 f f 2 f f 2 2 . . . . 
-    . . . 2 2 2 f 2 f 2 2 2 . . . . 
-    . . . 1 1 2 2 2 2 2 1 1 . . . . 
-    . . . 1 1 1 1 1 1 1 1 1 . . . . 
-    . . . . 1 1 1 1 1 1 1 . . . . . 
-    . . . . . 1 1 1 1 1 . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . f f f . f f f . . . . 
+    . . . . 1 f 1 f 1 f 1 f 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 1 . . . 
+    . . . 1 1 1 f 1 1 1 f 1 1 1 . . 
+    . . . 1 1 1 1 1 1 1 1 1 1 1 . . 
+    . . . 1 1 1 1 1 1 1 1 1 1 1 . . 
+    . . . 2 2 2 2 2 2 2 2 2 2 2 . . 
+    . . . 2 2 2 f 1 f 1 f 2 2 2 . . 
+    . . . . 2 2 2 1 f 1 f 2 2 . . . 
+    . . . . 2 2 2 2 2 2 2 2 2 . . . 
+    . . . . . . 2 2 2 2 2 . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
